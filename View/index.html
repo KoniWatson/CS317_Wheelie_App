@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width= device-width, initial-scale= 1, maximum-scale= 1, user-scalable= no"/>
+    <meta name="mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+
+    <link href="WheelieStylesheet.css" rel="stylesheet" type="text/css"/>
+    <!--source based on services from URL: https://devweb3000.cis.strath.ac.uk/~aes02112/317/services/ -->
+    <script src="https://openlayers.org/api/OpenLayers.js"></script>
+    <title>Wheelie</title>
+</head>
+<body>
+<div id="startMenu" class="menu">
+    <h1>Wheelie</h1>
+    <div class="menuContent">
+        <a href="#" onclick="controller.openMap()">MAP VIEW</a>
+        <a href="#" onclick="controller.openChat()">FORUM</a>
+        <a href="#" onclick="view.closeMenu(3)">WEATHER</a>
+        <a href="#" onclick="view.closeMenu(4)">WORKOUT</a>
+    </div>
+</div>
+
+<div id="map" class="widget">
+    <a class="a-tag small-a-tag" href="javascript:void(0)" onclick="controller.closeMap()">&#9776;</a>
+    <h1 id="map-heading">Map View</h1>
+    <div id="map-content" class="widgetContent">
+        <div id="location-div">
+            <form>
+                <label for="location-input"></label>
+                <input type="text" id="location-input">
+                <button id="search" onclick="model.searchLocation()">Search</button>
+            </form>
+            <button id="current-location" onclick="model.currentLocation()">
+                <img id="current_location_image" src="locationIcon.png" alt="current location">
+            </button>
+        </div>
+        <div id="map-div"></div>
+        <div id="input-div">
+            <label for="add">Tag: </label>
+            <select id="add" onchange="controller.extraOptions()">
+                <option value="none">None</option>
+                <option value="marker">Marker</option>
+                <option value="text">Comment</option>
+                <option value="line">Line</option>
+            </select>
+            <button id="undo" class="undo-button" onclick="model.undoMethod()">Undo</button>
+            <form id="text-box" class="text-box">
+                <label for="text-input">Text</label>
+                <input type="text" id="text-input" >
+            </form>
+            <button id="remove-marker" class="remove-button" onclick="controller.removeAddButton()">
+                Remove Marker
+            </button>
+            <div id="colour-div" class="cd">
+                <label id="colour-label" for="colour">Colour: </label>
+                <select id="colour" onchange="model.editLineColour()">
+                    <option id="red" value="red">Red</option>
+                    <option id="blue" value="blue">Blue</option>
+                    <option id="green" value="green">Green</option>
+                </select>
+            </div>
+            <button id="moreInfo" onclick="model.locationInformation()">Location Information</button>
+        </div>
+    </div>
+</div>
+
+<div id="chat" class="widget">
+    <a class="a-tag small-a-tag" href="javascript:void(0)" onclick="view.closeWidget(2)">&#9776;</a>
+    <h1 id="chat-heading" >Wheelie Forum</h1>
+    <div class="widgetContent">
+    </div>
+    <div id="chatHistoryDiv"></div>
+    <div id="chatFormDiv">
+        <form id="chatForm">
+            <input type = "text" id="messageText" />
+            <input type="submit" id="postButton" value="Post"/>
+        </form>
+    </div>
+</div>
+
+<div id="weather" class="widget">
+    <a class="a-tag small-a-tag" href="javascript:void(0)" onclick="view.closeWidget(3)">&#9776;</a>
+    <h1 id="weather-heading">Weather</h1>
+    <div class="widgetContent">
+    </div>
+    <div id="weatherButtons">
+        <h2>Current weather</h2>
+        <input type="text" id="city">
+        <button type="button" onclick="loadWeatherByLocation()">Search</button>
+        <button type="button" onclick="loadCurrentLocationWeather()">Current Location</button>
+    </div>
+    <div id ="weatherDisplay">
+        <div id="temperature"></div>
+        <div id="windSpeed"></div>
+        <div id="precipitation"></div>
+        <img id="weather_image" />
+    </div>
+    <div id="weather-map" style="width: 350px; height: 200px; justify-content: center;"></div>
+</div>
+
+<div id="workout" class="widget">
+    <a class="a-tag small-a-tag" href="javascript:void(0)" onclick="view.closeWidget(4)">&#9776;</a>
+    <h1 id="workoutHis">Workout <br>Mode</h1>
+    <a id="his" href="#" onclick="view.closeWorkout()">Workout History ⮕</a>
+    <div class="widgetContent">
+        <button id="start"><strong>START</strong></button>
+        <button id="stop"><strong>STOP</strong></button>
+        <div class="time">
+            <p id="time">TIME: <br><strong>00:00:00</strong></p>
+            <ul>
+                <li>HRS</li>
+                <li>MIN</li>
+                <li>SEC</li>
+            </ul>
+        </div>
+        <ul id="workoutInfo">y
+            <li>DISTANCE: <br><strong id="distance">0.0</strong>km</li>
+            <li>SPEED: <br><strong id="speed">0.0</strong>km/h</li>
+        </ul>
+    </div>
+    <marquee scrollamount="10"
+             direction="right"
+             behavior="scroll">
+    <img src="Bike2.png" width="125" height="125" alt="Moving bike image"/>
+    </marquee>
+</div>
+
+<div id="workoutHistory" class="widget">
+    <a class="a-tag small-a-tag" href="javascript:void(0)" onclick="view.closeWidget(5)">&#9776;</a>
+    <h1>History</h1>
+    <div class="widgetContent" id="table">
+        <ul id="history">
+
+        </ul>
+    </div>
+</div>
+
+<footer>
+    <p>By Group H | Cycle Support</p>
+</footer>
+
+<script src="MapModel.js"></script>
+<script src="WeatherModel.js"></script>
+<script src="ChatModel.js"></script>
+<script src="WorkoutModel.js"></script>
+
+<script src="WheelieModel.js"></script>
+<script src="WheelieView.js"></script>
+<script src="WheelieController.js"></script>
+</body>
+</html>
+

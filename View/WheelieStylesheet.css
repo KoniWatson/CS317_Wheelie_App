@@ -1,0 +1,348 @@
+html {
+    margin: 0;
+    padding: 0;
+    border: none;
+    height: 100%;
+}
+body {
+    text-align: center;
+    font-family: Arial, serif;
+    font-style: italic;
+    background: url('Bike.png') fixed;
+    overflow-x: hidden;
+}
+
+
+.menu {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0, 1);
+
+}
+.menuContent {
+    position: relative;
+    width: 100%;
+    text-align: center;
+}
+.menu a {
+    padding: 2rem;
+    text-decoration: none;
+    color: snow;
+    display: block;
+}
+.menu h1 {
+    position: relative;
+    color: snow;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+    padding: 1rem;
+    font-size: 3.6rem;
+    text-decoration: underline lightskyblue;
+}
+
+
+.widget {
+    background-color: snow;
+    border: solid .5rem lightskyblue;
+    width: 0;
+    height: 100%;
+    overflow-x: hidden;
+    position: fixed;
+}
+.widgetContent {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.widgetContent button {
+    text-align: center;
+    color: snow;
+    padding: 1rem;
+    font-size: 1rem;
+    background-color: black;
+    border-radius: 1rem;
+}
+
+.widget h1 {
+    position: relative;
+    color: black;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+    padding-bottom: 1rem;
+    margin: 0;
+    font-size: 2rem;
+    text-decoration: underline lightskyblue;
+}
+.widget .a-tag {
+    text-decoration: none;
+    color: black;
+    font-size: xx-large;
+    position: absolute;
+}
+
+#map-heading, #chat-heading, #weather-heading, #road-heading {
+    margin: 0;
+    padding: 0;
+    font-size: 2rem;
+}
+
+#map-content button {
+    background-color: lightskyblue;
+    padding: 0.5vh 2vw 0.5vh 2vw;
+    color: black;
+    border: none;
+    margin-top: 0.5vh;
+}
+
+.small-a-tag {
+    font-size: 1.5rem;
+    position: absolute;
+    margin-left: -43vw;
+    z-index: 1;
+}
+
+#map-content {
+    height: calc(100vh - 16rem);
+    position: relative;
+    margin: 1vh 0 1vh 0;
+}
+
+#map-div {
+    width: 100%;
+    height: 90%;
+}
+
+#location-div {
+    display: inline-flex;
+    margin-bottom: 1vh;
+}
+
+#current-location {
+    border: none;
+    display: contents;
+}
+
+#current_location_image {
+    height: 5vh;
+    margin-left: 5vw;
+}
+
+#input-div {
+    max-width: 90vw;
+    margin-left: 2.5vw;
+}
+
+#add {
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+}
+
+.text-box {
+    display: none;
+    margin-bottom: 1vh;
+}
+
+.undo-button, .remove-button{
+    display: none;
+    border: none;
+    font-size: 1rem;
+}
+
+.cd {
+    display: none;
+}
+
+#red {
+    color: red;
+}
+
+#blue {
+    color: blue;
+}
+
+#green {
+    color: green;
+}
+
+.show {
+    display: block;
+    margin-top: 1vh;
+}
+
+.show-button {
+    display: initial;
+    margin-left: 2vw;
+}
+
+.time strong {
+    color: black;
+    font-size: 4rem;
+}
+.time {
+    color: snow;
+    margin-top: 1rem;
+    padding: 1rem;
+    margin-bottom: 0;
+    background-color: lightskyblue;
+}
+.time ul {
+    list-style: none;
+    margin: 0;
+    padding-left: 1rem;
+}
+.time ul li {
+    padding-right: 3rem;
+    display: inline;
+}
+.time p {
+    margin-bottom: 0;
+}
+
+#workoutInfo {
+    display: inline-flex;
+    list-style: none;
+    padding-top: 0.5rem;
+    padding-left: 0;
+    margin: 0;
+    text-align: center;
+    background-color: black;
+    width: 100%;
+}
+#workoutInfo li {
+    color: snow;
+    padding-left: 4rem;
+    font-size: 0.9rem;
+}
+#speed {
+    font-size: 2.5rem;
+}
+#distance {
+    font-size: 2.5rem;
+}
+
+
+footer {
+    bottom: 0;
+    left: 0;
+    background-color: gold;
+    position: fixed;
+    border-radius: 1.5rem 1.5rem 0 0;
+    width: 100%;
+}
+footer p {
+    padding: 0;
+    font-size: small;
+    color: snow;
+}
+
+#weatherButtons button{
+    background-color: lightskyblue;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 10%;
+    height: 40px;
+    
+}
+
+#weatherDisplay{
+    display: grid;
+    grid-template-rows: auto auto auto;
+    height: 150px;
+    width: 50%;
+    border: 3px solid lightskyblue;
+    padding: 10px;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem auto;
+}
+
+#currentWeather {
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+#windSpeed{
+    grid-row-start: 2;
+    grid-row-end: 3;
+
+}
+
+#precipitation{
+    grid-row-start: 3;
+    grid-row-end: 4;
+
+}
+
+#weather_image{
+    grid-row-start: 4;
+    grid-row-end: 5;
+}
+
+#weather-map{
+    justify-content: center;
+    height: 500px;
+    width: 500px;
+    display: inline-block;
+}
+
+#chatHistoryDiv{
+    height: calc(100% - 15rem);
+    overflow: auto;
+}
+
+#chatHistoryDiv p{
+    background-color: lightskyblue;
+    border: 1px solid black;
+    margin: 0.55rem;
+    padding: 0.2rem;
+}
+
+#messageText{
+    font-size: 1.5rem;
+    width: calc(100% - 10rem);
+    text-align: right;
+}
+
+#postButton {
+    background-color: cornflowerblue;
+    color: white;
+    border: none;
+    border-radius: 2rem;
+    font-size: 1.5rem;
+    padding: 1rem;
+    width: 6rem;
+    cursor: pointer;
+}
+
+#workoutHis {
+    padding-bottom: 2rem;
+}
+#his {
+    text-decoration: none;
+    background-color: gold;
+    width: 100%;
+    color: white;
+    padding: 1rem;
+}
+
+#history {
+    display: inline;
+}
+#history li {
+    margin: 0.5rem;
+    padding: 0.5rem;
+    font-family: monospace;
+    font-size: x-large;
+    font-weight: bold;
+    background-color: lightskyblue;
+}
+
